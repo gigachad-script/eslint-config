@@ -1,0 +1,9 @@
+{
+  "*.js": [
+    "npx eslint --fix",
+    "npx prettier --write"
+  ],
+  "*.json": [
+    "npx prettier --write"
+  ]
+}

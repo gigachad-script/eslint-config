@@ -1,0 +1,33 @@
+{
+  "name": "eslint-config",
+  "version": "1.0.0",
+  "description": "linting and formatting for chads",
+  "main": "index.js",
+  "repository": "git@github.com:chadscript/eslint-config",
+  "author": "Mike Valeriano <mike.valeriano@sambatech.com.br>",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "npx simple-git-hooks"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "lint-staged": "^13.0.3",
+    "simple-git-hooks": "^2.8.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.2.5",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
+}
