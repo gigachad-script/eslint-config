@@ -1,0 +1,63 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "extend": {
+    "node": [
+      "airbnb-base",
+      "airbnb-typescript/base",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript",
+      "plugin:jest/recommended",
+      "plugin:jest/style",
+      "prettier"
+    ],
+    "react": [
+      "airbnb",
+      "airbnb-typescript",
+      "airbnb/hooks",
+      "plugin:react/jsx-runtime",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript",
+      "plugin:jest/recommended",
+      "plugin:jest/style",
+      "prettier"
+    ]
+  },
+  "plugins": [
+    "jest"
+  ],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "settings": {
+    "jest": {
+      "version": "latest"
+    },
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "rules": {
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
+    "jest/expect-expect": [
+      "error",
+      {
+        "assertFunctionNames": [
+          "expect",
+          "request.**.expect"
+        ]
+      }
+    ]
+  }
+}

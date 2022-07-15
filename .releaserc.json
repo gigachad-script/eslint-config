@@ -1,0 +1,15 @@
+{
+  "branches": [
+    "main"
+  ],
+  "analyzeCommits": {
+    "preset": "conventionalcommits",
+    "releaseRules": [
+      {
+        "type": "docs",
+        "scope": "readme",
+        "release": "patch"
+      }
+    ]
+  }
+}
