@@ -16,8 +16,8 @@ async function setup() {
   const writeOptions = { encoding: 'utf-8' };
   const vscodeDir = './.vscode';
 
-  const eslintFile = './.eslintrc.jsonc';
-  const prettierFile = './.prettierrc.jsonc';
+  const eslintFile = './.eslintrc.json';
+  const prettierFile = './.prettierrc.json';
   const vscodeExtensionsFile = `${vscodeDir}/extensions.json`;
   const vscodeSettingsFile = `${vscodeDir}/settings.json`;
 
