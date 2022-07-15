@@ -1,7 +1,7 @@
 {
   "name": "@chadscript/eslint-config",
   "version": "1.0.0",
-  "description": "linting and formatting for chads",
+  "description": "Linting and formatting for chads",
   "main": "index.js",
   "repository": "git@github.com:chadscript/eslint-config",
   "author": "Mike Valeriano <mike.valeriano@sambatech.com.br>",
