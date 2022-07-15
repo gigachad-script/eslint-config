@@ -22,8 +22,8 @@ async function setup() {
   const vscodeSettingsFile = `${vscodeDir}/settings.json`;
 
   const eslintExtend = reactArg
-    ? '@chadscript/eslint-config/react'
-    : '@chadscript';
+    ? '@gigachad-script/eslint-config/react'
+    : '@gigachad-script';
   const eslintContents = prettier.format(
     JSON.stringify({
       extends: [eslintExtend],
@@ -33,7 +33,7 @@ async function setup() {
     }),
     { parser: 'json-stringify' },
   );
-  const prettierContents = '"@chadscript/eslint-config/prettier"';
+  const prettierContents = '"@gigachad-script/eslint-config/prettier"';
   const vscodeExtensionsContents = prettier.format(
     JSON.stringify({
       recommendations: ['dbaeumer.vscode-eslint', 'esbenp.prettier-vscode'],
@@ -83,7 +83,7 @@ async function setup() {
     );
     await writeFile(vscodeSettingsFile, vscodeSettingsContents, writeOptions);
 
-    console.log('💪 CHADSCRIPT SETUP COMPLETE 💪');
+    console.log('💪 GIGACHAD-SCRIPT SETUP COMPLETE 💪');
   } catch (e) {
     console.log("😫 THERE WAS A PROBLEM BUT I'M TOO LAZY TO WORK ON IT 😫");
   }
