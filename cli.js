@@ -3,7 +3,11 @@
 /* eslint-disable no-console */
 
 const { writeFile, access, mkdir } = require('fs/promises');
+const { exec: _exec } = require('child_process');
+const { promisify } = require('util');
 const prettier = require('prettier');
+
+const exec = promisify(_exec);
 
 async function setup() {
   const reactArg = process.argv[2] || null;
@@ -16,10 +20,11 @@ async function setup() {
   const writeOptions = { encoding: 'utf-8' };
   const vscodeDir = './.vscode';
 
+  const tsconfig = './tsconfig.json';
   const eslintFile = './.eslintrc.json';
   const prettierFile = './.prettierrc.json';
-  const vscodeExtensionsFile = `${vscodeDir}/extensions.json`;
-  const vscodeSettingsFile = `${vscodeDir}/settings.json`;
+  const codeExtensionsFile = `${vscodeDir}/extensions.json`;
+  const codeSettingsFile = `${vscodeDir}/settings.json`;
 
   const eslintExtend = reactArg
     ? '@gigachad-script/eslint-config/react'
@@ -34,7 +39,7 @@ async function setup() {
     { parser: 'json-stringify' },
   );
   const prettierContents = '"@gigachad-script/eslint-config/prettier"';
-  const vscodeExtensionsContents = prettier.format(
+  const codeExtensionsContents = prettier.format(
     JSON.stringify({
       recommendations: ['dbaeumer.vscode-eslint', 'esbenp.prettier-vscode'],
     }),
@@ -42,7 +47,7 @@ async function setup() {
       parser: 'json-stringify',
     },
   );
-  const vscodeSettingsContents = prettier.format(
+  const codeSettingsContents = prettier.format(
     JSON.stringify({
       '[css][html][json][jsonc][javascript][javascriptreact][typescript][typescriptreact][yaml]':
         {
@@ -74,14 +79,16 @@ async function setup() {
   }
 
   try {
+    await access(tsconfig);
+  } catch (e) {
+    await exec('npx tsc --init');
+  }
+
+  try {
     await writeFile(eslintFile, eslintContents, writeOptions);
     await writeFile(prettierFile, prettierContents, writeOptions);
-    await writeFile(
-      vscodeExtensionsFile,
-      vscodeExtensionsContents,
-      writeOptions,
-    );
-    await writeFile(vscodeSettingsFile, vscodeSettingsContents, writeOptions);
+    await writeFile(codeExtensionsFile, codeExtensionsContents, writeOptions);
+    await writeFile(codeSettingsFile, codeSettingsContents, writeOptions);
 
     console.log('💪 GIGACHAD-SCRIPT SETUP COMPLETE 💪');
   } catch (e) {
