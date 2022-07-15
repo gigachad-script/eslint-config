@@ -1,20 +1,32 @@
 #!/usr/bin/env node
 
+/* eslint-disable no-console */
+
 const { writeFile, access, mkdir } = require('fs/promises');
 const prettier = require('prettier');
 
 async function setup() {
+  const reactArg = process.argv[2] || null;
+
+  if (reactArg && reactArg !== '--react') {
+    console.log('🤔 INVALID SWITCH (DID YOU MEAN TO ADD --react ?) 🤔');
+    return;
+  }
+
   const writeOptions = { encoding: 'utf-8' };
   const vscodeDir = './.vscode';
 
-  const eslintFile = './.eslintrc.json';
-  const prettierFile = './.prettierrc.json';
+  const eslintFile = './.eslintrc.jsonc';
+  const prettierFile = './.prettierrc.jsonc';
   const vscodeExtensionsFile = `${vscodeDir}/extensions.json`;
   const vscodeSettingsFile = `${vscodeDir}/settings.json`;
 
+  const eslintExtend = reactArg
+    ? '@chadscript/eslint-config/react'
+    : '@chadscript';
   const eslintContents = prettier.format(
     JSON.stringify({
-      extends: ['@chadscript'],
+      extends: [eslintExtend],
       parseOptions: {
         project: './tsconfig.json',
       },
@@ -71,10 +83,8 @@ async function setup() {
     );
     await writeFile(vscodeSettingsFile, vscodeSettingsContents, writeOptions);
 
-    // eslint-disable-next-line no-console
     console.log('💪 CHADSCRIPT SETUP COMPLETE 💪');
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.log("😫 THERE WAS A PROBLEM BUT I'M TOO LAZY TO WORK ON IT 😫");
   }
 }
