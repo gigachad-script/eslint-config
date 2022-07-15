@@ -1,6 +1,6 @@
-# @chadscript/eslint-config
+# @gigachad-script/eslint-config
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chadscript/eslint-config/publish) ![npm (scoped)](https://img.shields.io/npm/v/@chadscript/eslint-config)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/gigachad-script/eslint-config/publish) ![npm (scoped)](https://img.shields.io/npm/v/@gigachad-script/eslint-config)
 
 Linting and formatting for typescript chads
 
@@ -36,7 +36,7 @@ convenience?
 
 ```bash
 # you can use npm but why would you?
-yarn add @chadscript/eslint-config -D
+yarn add @gigachad-script/eslint-config -D
 ```
 
 ### configure
@@ -58,7 +58,7 @@ create a `.eslintrc.json` file at root and fill it with
 ```json5 {.line-numbers}
 {
   "extends": [
-    "@chadscript" // "@chadscript/eslint-config/react" for react projects
+    "@gigachad-script" // "@gigachad-script/eslint-config/react" for react projects
   ],
   "parseOptions": {
     "project": "./tsconfig.json"
@@ -69,7 +69,7 @@ create a `.eslintrc.json` file at root and fill it with
 create a `.prettierrc.json` file at root and fill it with
 
 ```json5 {.line-numbers}
-"@chadscript/eslint-config/prettier"
+"@gigachad-script/eslint-config/prettier"
 ```
 
 *follwing steps only if using vscode:*
