@@ -58,7 +58,7 @@ async function setup() {
   try {
     await access(vscodeDir);
   } catch (e) {
-    mkdir(vscodeDir);
+    await mkdir(vscodeDir);
   }
 
   try {
