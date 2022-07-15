@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config",
+  "name": "@chadscript/eslint-config",
   "version": "1.0.0",
   "description": "linting and formatting for chads",
   "main": "index.js",
