@@ -1,6 +1,6 @@
 # @chadscript/eslint-config
 
-[![publish](https://github.com/chadscript/eslint-config/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/chadscript/eslint-config/actions/workflows/publish.yml) [![npm version](https://badge.fury.io/js/@chadscript%2Feslint-config.svg)](https://www.npmjs.com/package/@chadscript/eslint-config)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chadscript/eslint-config/publish) ![npm (scoped)](https://img.shields.io/npm/v/@chadscript/eslint-config)
 
 Linting and formatting for typescript chads
 
@@ -10,15 +10,15 @@ Linting and formatting for typescript chads
 
 **uncompromising typescript (node and react) eslint configurations**
 
+![chadscript](chadscript.png)
+
 this package mainly extends [airbnb's excellent guide](https://github.com/airbnb/javascript), while disabling or tweaking a couple rules in order to become awesome
 
 includes [this enhancement on top of it to allow typescript](https://www.npmjs.com/package/eslint-config-airbnb-typescript), and a generic jest linting configuration
 
-rules read for usage with typescript paths setup in tsconfig.json (eslint will resolve import paths without issues)
-
 it also exposes a somewhat standard prettier configuration that can be extended
 
-finally, it includes a setup script to create vscode, eslint, and prettier configuration files in one go
+finally, it includes a setup script to create vscode, eslint, and prettier configuration files for linting/formatting while coding, all in one go
 
 ---
 
@@ -30,65 +30,74 @@ convenience?
 
 ## how?
 
-**install**:
+> **❗️** install typescript as dev dependency and have a `tsconfig.json` file setup beforehand
+
+### install
 
 ```bash
+# you can use npm but why would you?
 yarn add @chadscript/eslint-config -D
 ```
 
-**configure**:
+### configure
 
-this can be done in one of two ways
+**automatically (recommented):**
 
-1. automatically, by running `npx chadsetup` (`npx chadsetup --react` if it's a react project) on your terminal and install the recommended vscode extensions if you are using it
+```bash
+# node, without react
+npx chadsetup
 
-2. manually, by being lame and creating the config files yourself, as described below:
+# for react projects
+npx chadsetup --react
+```
 
-    * create `.eslintrc.json` file and fill it with
+**manually:**
 
-        ```json
-        {
-          "extends": [
-            "@chadscript" // "@chadscript/eslint-config/react" if it's a react project
-          ],
-          "parseOptions": {
-            "project": "./tsconfig.json"
-          }
-        }
-        ```
+create a `.eslintrc.json` file at root and fill it with
 
-    * create `.prettierrc.json` file and fill it with
+```json5 {.line-numbers}
+{
+  "extends": [
+    "@chadscript" // "@chadscript/eslint-config/react" for react projects
+  ],
+  "parseOptions": {
+    "project": "./tsconfig.json"
+  }
+}
+```
 
-        ```json
-        "@chadscript/eslint-config/prettier"
-        ```
+create a `.prettierrc.json` file at root and fill it with
 
-        ***follwing steps only if using vscode:***
+```json5 {.line-numbers}
+"@chadscript/eslint-config/prettier"
+```
 
-    * install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions
+*follwing steps only if using vscode:*
 
-    * create `settings.json` inside a `.vscode` directory and fill it with
+install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions
 
-        ```json
-        {
-          "[css][html][json][jsonc][javascript][javascriptreact][typescript][typescriptreact][yaml]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode"
-          },
-          "editor.codeActionsOnSave": {
-            "source.fixAll": true
-          },
-          "editor.formatOnPaste": true,
-          "editor.formatOnSave": true,
-          "editor.formatOnType": true,
-          "eslint.alwaysShowStatus": true,
-          "eslint.validate": [
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact"
-          ]
-        }
-        ```
+create `settings.json` inside a `.vscode` directory and fill it with
+
+```json5 {.line-numbers}
+{
+  "[css][html][json][jsonc][javascript][javascriptreact][typescript][typescriptreact][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}
+```
 
 ---
 
