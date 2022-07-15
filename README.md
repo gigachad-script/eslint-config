@@ -1,0 +1,1 @@
+# @chadscript/eslint-config
