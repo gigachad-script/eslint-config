@@ -8,29 +8,32 @@ Linting and formatting for typescript chads
 
 ## what?
 
-**uncompromising typescript (node and react) eslint configurations**
+an uncompromising typescript and typescript-react eslint configurations with bonuses
 
 ![chadscript](chadscript.png)
 
-this package mainly extends [airbnb's excellent guide](https://github.com/airbnb/javascript), while disabling or tweaking a couple rules in order to become awesome
+this package includes:
 
-includes [this enhancement on top of it to allow typescript](https://www.npmjs.com/package/eslint-config-airbnb-typescript), and a generic jest linting configuration
+* an extended, custom version of [airbnb's excellent guide](https://github.com/airbnb/javascript) working 100% with typescript (all dependencies are installed)
 
-it also exposes a somewhat standard prettier configuration that can be extended
+* a somewhat default-ish prettier configuration
 
-finally, it includes a setup script to create vscode, eslint, and prettier configuration files for linting/formatting while coding, all in one go
+* an also kind of standard editorconfig configuration
+
+* vscode settings to provide seamless linting/formatting experience and the suggested extensions to do so
 
 ---
 
 ## why?
 
-convenience?
+convenience, lazyness, to appease the forgotten gods of yore
 
 ---
 
 ## how?
 
-> **❗️** install typescript as dev dependency and have a `tsconfig.json` file setup beforehand
+> **❗️** install typescript and have a `tsconfig.json` file setup beforehand
+`yarn add typescript -D && npx tsc --init` will do
 
 ### install
 
@@ -72,11 +75,25 @@ create a `.prettierrc.json` file at root and fill it with
 "@gigachad-script/eslint-config/prettier"
 ```
 
-*follwing steps only if using vscode:*
+(optional) create a `.editorconfig` file at root and fill it with
 
-install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions
+```editorconfig
+root=true
 
-create `settings.json` inside a `.vscode` directory and fill it with
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+max_line_length = 80
+```
+
+***follwing steps only if using vscode:***
+
+(optional) install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions
+
+(optional) create `settings.json` inside a `.vscode` directory and fill it with
 
 ```json5 {.line-numbers}
 {
