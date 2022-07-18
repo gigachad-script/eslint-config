@@ -91,11 +91,9 @@ max_line_length = 80
 
 ***follwing steps only if using vscode:***
 
-(optional) install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions
+(optional) install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions from the link, searching through vscode's extension widget, or using the terminal:
 
 ```bash
-# easier to look for them in vscode's extension widget
-# but can be done from cli as well
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension esbenp.prettier-vscode
 ```
