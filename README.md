@@ -44,7 +44,7 @@ yarn add @gigachad-script/eslint-config -D
 
 ### configure
 
-**automatically (recommented):**
+**automatically (recommented for NEW projects):**
 
 ```bash
 # node, without react
@@ -56,7 +56,7 @@ npx chadsetup --react
 
 **manually:**
 
-create a `.eslintrc.json` file at root and fill it with
+create a `.eslintrc.json` file at root (or edit an existing one) adding the following to it:
 
 ```json5 {.line-numbers}
 {
@@ -69,13 +69,13 @@ create a `.eslintrc.json` file at root and fill it with
 }
 ```
 
-create a `.prettierrc.json` file at root and fill it with
+create a `.prettierrc.json` file at root (or edit an existing one) adding the following to it:
 
 ```json5 {.line-numbers}
 "@gigachad-script/eslint-config/prettier"
 ```
 
-(optional) create a `.editorconfig` file at root and fill it with
+(optional) create a `.editorconfig` file at root (or edit an existing one) adding the following to it:
 
 ```editorconfig
 root=true
@@ -93,7 +93,14 @@ max_line_length = 80
 
 (optional) install the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions
 
-(optional) create `settings.json` inside a `.vscode` directory and fill it with
+```bash
+# easier to look for them in vscode's extension widget
+# but can be done from cli as well
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension esbenp.prettier-vscode
+```
+
+(optional) create `settings.json` inside a `.vscode` directory (or edit an existing one) adding the following to it:
 
 ```json5 {.line-numbers}
 {
