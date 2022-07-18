@@ -58,12 +58,27 @@ npx chadsetup --react
 
 create a `.eslintrc.json` file at root (or edit an existing one) adding the following to it:
 
+(regular node projects)
+
 ```json5 {.line-numbers}
 {
   "extends": [
-    "@gigachad-script" // "@gigachad-script/eslint-config/react" for react projects
+    "@gigachad-script"
   ],
-  "parseOptions": {
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}
+```
+
+(react projects)
+
+```json5 {.line-numbers}
+{
+  "extends": [
+    "@gigachad-script/eslint-config/react"
+  ],
+  "parserOptions": {
     "project": "./tsconfig.json"
   }
 }
