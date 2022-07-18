@@ -32,18 +32,35 @@
     "jest"
   ],
   "env": {
-    "node": true,
-    "jest": true
-  },
-  "settings": {
-    "jest": {
-      "version": "latest"
+    "node": {
+      "node": true,
+      "jest": true
     },
     "react": {
-      "version": "detect"
+      "node": true,
+      "jest": true,
+      "browser": true
+    }
+  },
+  "settings": {
+    "node": {
+      "jest": {
+        "version": "latest"
+      },
+      "import/resolver": {
+        "typescript": {}
+      }
     },
-    "import/resolver": {
-      "typescript": {}
+    "react": {
+      "jest": {
+        "version": "latest"
+      },
+      "react": {
+        "version": "detect"
+      },
+      "import/resolver": {
+        "typescript": {}
+      }
     }
   },
   "rules": {
