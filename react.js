@@ -13,7 +13,7 @@ module.exports = {
   parserOptions,
   extends: [...extend.react],
   plugins,
-  env: [...env.react],
-  settings: [...settings.react],
+  env: env.node,
+  settings: settings.react,
   rules,
 };

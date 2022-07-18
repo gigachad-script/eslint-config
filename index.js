@@ -13,7 +13,7 @@ module.exports = {
   parserOptions,
   extends: [...extend.node],
   plugins,
-  env: [...env.node],
-  settings: [...settings.node],
+  env: env.node,
+  settings: settings.node,
   rules,
 };
